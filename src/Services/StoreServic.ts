@@ -36,8 +36,9 @@ const buyMissille = async (buyUser: buyUserDto) => {
     resourceSingel.amount ++;
     org!.Budget =  org!.Budget - pric!;
     console.log(resourceSingel, org!.Budget);
+    org.save()
     
-  
+    
     return buyUser;
   }else{
     console.log("User not found");
