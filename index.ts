@@ -4,8 +4,17 @@ import router from "./Routers/Router";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import loadInitialData from "./Initializedata/readingData";
+import cors from "cors";
 
 const app: Express = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5174",
+    credentials: true,
+  })
+);
+
 loadInitialData();
 app.use(express.json());
 app.use(cookieParser());
